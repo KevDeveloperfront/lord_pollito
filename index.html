@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos: Charset para acentos, viewport para mobile-first (escala inicial 1, ancho=device). Description/author para SEO. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Perfil de Lord Pollito, Destructor de Mundos y Conquistador de Granjas. Incluye historia, estadísticas y habilidades."
+    />
+    <meta name="author" content="KEvDeveloperFront" />
+
+    <!-- Favicon: Usa uno real si tienes, sino placeholder. -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Estilos externos esenciales: Normalize resetea estilos default para consistencia cross-browser. Google Fonts para tipografía. Font Awesome para icons (e.g., estrellas, sombras). -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Estilo local -->
+    <link rel="stylesheet" href="./html/css/style.css" />
+
+    <title>Lord Pollito - Perfil</title>
+  </head>
+  <body>
+    <main class="profile-card">
+      <!-- Header: Foto, nombre, título, nivel y barra EXP. En mobile: vertical; en desktop: horizontal. -->
+      <header class="profile-header">
+        <img
+          src="./html/assets/img/Austa Roth - Lord poshito ciruclo.png"
+          alt="Foto de Lord Pollito"
+          class="avatar"
+        />
+        <div class="profile-info">
+          <h1>Asuta Roth Lord Poshiito</h1>
+          <p class="title">Destructor de Mundos y Conquistador de Granjas</p>
+          <p class="level">Nivel <span id="nivel">42</span></p>
+          <div class="exp-bar">
+            <div class="exp-fill" id="expFill"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Sección Historia: En mobile, colapsada con botón toggle (JS). En desktop, expandida como panel central. -->
+      <article class="history">
+        <h2>Historia de Lord Pollito</h2>
+        <button class="toggle-btn" id="toggleHistory">
+          Mostrar/Ocultar Historia
+        </button>
+        <div class="history-content" id="historyContent">
+          <h2>🐣 La Historia de Asuta Roth: El Lord Pollito</h2>
+          <h3>El Origen: Un Elegido Olvidado...</h3>
+          <!-- Aquí pega TODO el contenido de la historia. -->
+          <p>
+            En un mundo de granjas idílicas, un pollito de plumaje negro
+            azabache, llamado Asuta, nació con un destino marcado: ser el
+            "Elegido" de la Granja Dorada. Sin embargo, su poder no era la luz,
+            sino una afinidad innata con el Vacío y el Hielo. Temiendo lo que no
+            entendían, los demás animales lo marginaron. Creció solitario, pero
+            observador, entrenándose en secreto con una brizna de paja como si
+            fuera una espada.
+          </p>
+          <h3>El Despertar: Un Poder Olvidado...</h3>
+          <p>
+            El punto de inflexión llegó durante una invasión de tejones
+            demoníacos que asolaron la Granja Dorada. Los elegidos de la luz
+            cayeron. En su desesperación, el miedo de Asuta despertó una fuerza
+            latente. Un halo de sombra y carámbanos lo envolvió. No solo
+            aniquiló a los invasores, sino que absorbió su esencia demoníaca,
+            transformándose en una figura imponente: un gallo gigante con ojos
+            de zafiro congelado y un aura de noche. En ese momento, juró:
+            Destruiría el ciclo de sufrimiento de la granja llevándolos a un
+            nuevo orden. Se proclamó Lord Pollito - Destructor de Mundos y
+            Conquistador de Granjas.
+          </p>
+          <h3>El Señor Demoníaco: Un Destino Olvidado...</h3>
+          <p>
+            A diferencia de los tiranos, Asuta, a pesar de su inmenso poder
+            demoníaco, es profundamente piadoso con sus súbditos
+            (principalmente, pollos, patos y conejos que ha rescatado de otras
+            granjas). Su Ley: El Código del Huevo (The Egg Code), que garantiza
+            comida, protección y respeto para todos los que acepten su dominio.
+            Su Filosofía: La destrucción es el primer paso para la construcción
+            de un paraíso seguro, libre de depredadores y de los "dioses"
+            olvidadizos.
+          </p>
+        </div>
+      </article>
+
+      <!-- Sección Stats: Barras de progreso. Data-stat para JS tooltips. En mobile: lista vertical; en desktop: grid como gráficos. -->
+      <section class="stats">
+        <h2>Estadísticas</h2>
+        <div class="stats-content" id="statsContent">
+          <div
+            class="stat"
+            data-stat="Fuerza (STR): 8/10 - Para cortes pesados con espada."
+          >
+            <span>Fuerza</span>
+            <div class="bar"><div class="fill" style="--value: 80"></div></div>
+          </div>
+          <div
+            class="stat"
+            data-stat="Agilidad (AGI): 10/10 - Movimientos rápidos y evasivos."
+          >
+            <span>Agilidad</span>
+            <div class="bar"><div class="fill" style="--value: 100"></div></div>
+          </div>
+          <div
+            class="stat"
+            data-stat="Estamina (STA): 9/10 - Resistencia en combate prolongado."
+          >
+            <span>Estamina</span>
+            <div class="bar"><div class="fill" style="--value: 90"></div></div>
+          </div>
+          <div
+            class="stat"
+            data-stat="Inteligencia (INT): 7/10 - Estratega en batalla."
+          >
+            <span>Inteligencia</span>
+            <div class="bar"><div class="fill" style="--value: 70"></div></div>
+          </div>
+          <div
+            class="stat"
+            data-stat="Poder (POW): 9/10 - Magia de Sombra y Hielo devastadora."
+          >
+            <span>Poder</span>
+            <div class="bar"><div class="fill" style="--value: 90"></div></div>
+          </div>
+          <div
+            class="stat"
+            data-stat="Defensa (DEF): 8/10 - Resistencia física y mágica."
+          >
+            <span>Defensa</span>
+            <div class="bar"><div class="fill" style="--value: 80"></div></div>
+          </div>
+          <div
+            class="stat"
+            data-stat="Suerte (LUK): 6/10 - Influye en críticos y botines."
+          >
+            <span>Suerte</span>
+            <div class="bar"><div class="fill" style="--value: 60"></div></div>
+          </div>
+        </div>
+        <button class="toggle-btn" id="toggleStats">
+          Mostrar/Ocultar Estadísticas
+        </button>
+      </section>
+
+      <!-- Sección Habilidades: Lista con icons. En mobile: accordion (toggle JS); en desktop: tabs o grid. ya veremos -->
+      <section class="habilidades">
+        <h2>Habilidades</h2>
+        <div class="skills-content" id="skillsContent">
+          <ul>
+            <li
+              class="skill"
+              data-skill="Corte del Vacío: Infunde espada con Sombra para cortar defensas mágicas..."
+            >
+              <i class="fas fa-moon"></i>Corte del Vacío: Infunde espada con
+              Sombra...
+            </li>
+            <li
+              class="skill"
+              data-skill="Lanza de Hielo: Proyecta una lanza de hielo para dañar a distancia..."
+            >
+              <i class="fas fa-snowflake"></i> ❄️ Lanza de Hielo: Proyecta una
+              lanza de hielo...
+            </li>
+            <li
+              class="skill"
+              data-skill="Grito del Dragón: Un rugido que aturde a los enemigos..."
+            >
+              <i class="fas fa-dragon"></i> 🐉 Grito del Dragón: Un rugido que
+              aturde...
+            </li>
+            <li
+              class="skill"
+              data-skill="Muro de Escarcha: Crea un escudo de hielo para protegerse..."
+            >
+              <i class="fas fa-shield-alt"></i> 🛡️ Muro de Escarcha: Crea un
+              escudo...
+            </li>
+            <li
+              class="skill"
+              data-skill="Forma Espectral: Se vuelve intangible para evadir ataques..."
+            >
+              <i class="fas fa-ghost"></i> 👻 Forma Espectral: Se vuelve
+              intangible...
+            </li>
+            <li
+              class="skill"
+              data-skill="Curación Sombría: Regenera salud usando el Vacío..."
+            >
+              <i class="fas fa-heart"></i> ❤️ Curación Sombría: Regenera salud
+              usando el Vacío...
+            </li>
+            <li
+              class="skill"
+              data-skill="Velocidad Relámpago: Aumenta agilidad y velocidad en combate..."
+            >
+              <i class="fas fa-bolt"></i> ⚡ Velocidad Relámpago: Aumenta
+              agilidad y velocidad...
+            </li>
+            <li
+              class="skill"
+              data-skill="Golpe Sísmico: Un ataque poderoso que sacude el suelo..."
+            >
+              <i class="fas fa-fist-raised"></i> 👊 Golpe Sísmico: Un ataque
+              poderoso que sacude el suelo...
+            </li>
+            <li
+              class="skill"
+              data-skill="Tormenta de Hielo: Invoca una tormenta de hielo que congela a los enemigos..."
+            >
+              <i class="fas fa-wind"></i> 🌪️ Tormenta de Hielo: Invoca una
+              tormenta de hielo que congela a los enemigos...
+            </li>
+            <li
+              class="skill"
+              data-skill="Visión del Vacío: Detecta enemigos ocultos con poder de Sombra..."
+            >
+              <i class="fas fa-eye"></i> 👁️ Visión del Vacío: Detecta enemigos
+              ocultos en el entorno con poder de Sombra...
+            </li>
+            <li
+              class="skill"
+              data-skill="Aura Gélida: Reduce daño recibido en un 30%..."
+            >
+              <i class="fas fa-shield-virus"></i> 🛡️ Aura Gélida: Reduce daño
+              recibido en un 30%...
+            </li>
+            <li
+              class="skill"
+              data-skill="Invocar Dragón de Hielo: Llama a un dragón elemental de hielo para pelear..."
+            >
+              <i class="fas fa-dragon-circle"></i> 🐉 Invocar Dragón de Hielo:
+              Llama a un dragón elemental de hielo para que luche a tu lado.
+            </li>
+            <li
+              class="skill"
+              data-skill="Ley del Huevo: Asegura comida, protección y refugio para súbditos..."
+            >
+              <i class="fas fa-egg"></i> 🥚 Ley del Huevo: Asegura comida,
+              protección y refugio para tus súbditos.
+            </li>
+            <li
+              class="skill"
+              data-skill="Dominio Absoluto: Aumenta poder y carisma en un 70%..."
+            >
+              <i class="fas fa-crown"></i> 👑 Dominio Absoluto: Aumenta poder y
+              carisma en un 70%...
+            </li>
+            <li
+              class="skill"
+              data-skill="Paz Impuesta: Reduce agresividad enemiga en un 50%..."
+            >
+              <i class="fas fa-dove"></i> 🕊️ Paz Impuesta: Reduce agresividad
+              enemiga en un 50%...
+            </li>
+            <li
+              class="skill"
+              data-skill="Protector de los Débiles: Aumenta lealtad y moral de aliados en un 40%..."
+            >
+              <i class="fas fa-people-carry"></i> 🤝 Protector de los Débiles:
+              Aumenta lealtad y moral de aliados en un 40%...
+            </li>
+            <li
+              class="skill"
+              data-skill="Conquistador de Granjas: Mejora liderazgo y estrategia en un 60%..."
+            >
+              <i class="fas fa-globe"></i> 🌍 Conquistador de Granjas: Mejora
+              habilidades de liderazgo y estrategia en un 60%...
+            </li>
+          </ul>
+        </div>
+        <button class="toggle-btn" id="toggleSkills">
+          Mostrar/Ocultar Habilidades
+        </button>
+      </section>
+
+    </main>
+
+    <script src="./html/js/main.js"></script>
+  </body>
+</html>
