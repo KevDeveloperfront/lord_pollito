@@ -52,8 +52,6 @@ body {
   align-items: center;
   gap: var(--spacing);
   padding: 0.5rem;
-  /* background: rgba(18, 19, 19, 0.3); */
-  /* border: 1px solid var(--accent-color); */
   box-shadow: var(--shadow);
   border-radius: 15px;
   overflow: hidden;
@@ -126,6 +124,7 @@ body {
   overflow: hidden;
   margin-top: var(--spacing);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: var(--spacing);
 }
 
 .exp-fill {
