@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Perfil — Grid CSS</title>
+<style>
+  /* ====== Base & tema ====== */
+  :root{
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --ink: #0f172a;
+    --ink-2:#475569;
+    --accent:#22d3ee;
+    --accent-2:#06b6d4;
+    --radius: 22px;
+    --gap: clamp(14px, 2vw, 24px);
+    --pad: clamp(16px, 2.2vw, 28px);
+    --ring: 1.75px solid #0f172a10;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+  }
+
+  /* ====== Grid del app (2 columnas) ====== */
+  .app{
+    min-height:100dvh;
+    padding: var(--gap);
+    display:grid;
+    grid-template-columns: minmax(260px, 320px) 1fr;
+    gap: var(--gap);
+  }
+
+  /* ====== Sidebar ====== */
+  .sidebar{
+    border-radius: var(--radius);
+    padding: var(--pad);
+    color:#e6faff;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    gap: 18px;
+
+    /* fondo oscuro con leve degradado */
+    background:
+      radial-gradient(120px 120px at 80px 110px, #1ee7ff40, transparent 70%),
+      linear-gradient(180deg, #071a2b 0%, #061524 100%);
+    box-shadow: 0 8px 24px #0f172a20, inset 0 0 0 1px #ffffff0d;
+  }
+
+  .avatar{
+    inline-size:84px;
+    block-size:84px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:
+      radial-gradient(48px 48px at 50% 50%, #a7f3d0, #59e1ff);
+    border: 3px solid #bff6ff;
+    box-shadow: 0 0 0 10px #22d3ee25, 0 10px 20px #0006;
+    overflow:hidden;
+  }
+  .avatar img{
+    width:64px; height:64px; object-fit:cover;
+    filter: drop-shadow(0 2px 2px #0004);
+  }
+
+  .title{
+    margin: 0;
+    font-size: clamp(18px, 2.2vw, 22px);
+    color:#bff6ff;
+    font-weight: 800;
+    letter-spacing: .2px;
+  }
+  .subtitle{
+    margin: 0;
+    color:#9cc6d6;
+    font-size: 13.5px;
+    max-width: 28ch;
+    line-height: 1.25;
+  }
+
+  .level{
+    margin-top: 6px;
+    font-size:13px;
+    color:#9de8ff;
+    display:flex; justify-content:space-between;
+  }
+  .bar{
+    inline-size:100%;
+    block-size:8px;
+    border-radius:999px;
+    background:#08202f;
+    box-shadow: inset 0 0 0 1px #ffffff12;
+    overflow:hidden;
+  }
+  .bar > i{
+    display:block;
+    inline-size:42%;
+    block-size:100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  }
+
+  /* ====== Main (grid anidado) ====== */
+  .main{
+    border-radius: calc(var(--radius) + 6px);
+    background: #fff;
+    padding: var(--gap);
+    box-shadow: 0 10px 26px #0f172a1a;
+    border: var(--ring);
+    display:grid; /* contenedor para que el padding no pelee con el grid interno */
+  }
+
+  .main-grid{
+    display:grid;
+    gap: var(--gap);
+    /* fila 1: Historia ocupa 2 columnas; fila 2: Estadísticas + Habilidades */
+    grid-template-columns: 1fr .92fr; /* ligeramente más ancha la izquierda como en el boceto */
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "historia historia"
+      "stats skills";
+    min-height: 0; /* corrige overflow */
+  }
+
+  .panel{
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: var(--pad);
+    border: var(--ring);
+    box-shadow: 0 1px 0 #ffffff, 0 12px 18px #0f172a12;
+    min-height: 160px;
+  }
+  .panel h2{
+    margin: 0 0 10px;
+    font-size: clamp(16px, 1.6vw, 18px);
+  }
+
+  .historia{ grid-area: historia; min-height: 180px; }
+  .stats{ grid-area: stats; }
+  .skills{ grid-area: skills; }
+
+  /* ====== Responsivo ====== */
+  @media (max-width: 1000px){
+    .app{
+      grid-template-columns: 1fr;
+    }
+    .sidebar{
+      order: -1; /* sidebar arriba en pantallas medianas y móviles */
+    }
+  }
+  @media (max-width: 680px){
+    .main-grid{
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "historia"
+        "stats"
+        "skills";
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .panel, .sidebar{ transition: box-shadow .2s ease, transform .2s ease }
+    .panel:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px #0f172a20 }
+  }
+</style>
+</head>
+<body>
+
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="avatar" aria-hidden="true">
+        <!-- Puedes cambiar por tu imagen -->
+        <img alt="Lord Pollito" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f425.png">
+      </div>
+
+      <h1 class="title">Lord Pollito</h1>
+      <p class="subtitle">Destructor de Mundos y Conquistador de Granjas</p>
+
+      <div class="level">
+        <span>Nivel 42</span><span>&nbsp;</span>
+      </div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42" aria-label="Progreso de nivel">
+        <i></i>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <section class="main-grid">
+        <article class="panel historia">
+          <h2>Historia</h2>
+          <p>Escribe aquí la biografía, misiones o lore del personaje.</p>
+        </article>
+
+        <article class="panel stats">
+          <h2>Estadísticas</h2>
+          <ul>
+            <li>HP: 1800</li>
+            <li>ATK: 245</li>
+            <li>DEF: 190</li>
+            <li>Velocidad: 72</li>
+          </ul>
+        </article>
+
+        <article class="panel skills">
+          <h2>Habilidades</h2>
+          <ul>
+            <li>Picotazo Cósmico</li>
+            <li>Graznido Sónico</li>
+            <li>Escudo de Plumas</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
