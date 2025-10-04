@@ -347,6 +347,12 @@ body {
     text-align: justify;
   }
 
+  .skill {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
   /* ===== Scroll Personalizado ===== */
 
   /* Chrome, Edge y Safari */
