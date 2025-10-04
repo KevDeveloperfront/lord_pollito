@@ -347,10 +347,8 @@ body {
     text-align: justify;
   }
 
-  .skill {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+  .skill i {
+    margin-right: calc(var(--spacing) * 2);
   }
 
   /* ===== Scroll Personalizado ===== */
